@@ -3,8 +3,12 @@ import styles from './Form.module.scss';
 import AppContext from '../../context';
 import Button from '../Button/Button';
 import Input from '../Input/Input';
-import FormTypes from './FormTypes';
 import CategoryDropdown from '../Dropdown/Dropdown';
+
+const FormTypes = {
+	addItem: 'addItem',
+	addPrice: 'addPrice'
+};
 
 const AddGroceryItemForm = ({ context, handleInputChange, handleDropdownChange, state }) => {
 	return (
@@ -86,19 +90,18 @@ class Form extends React.Component {
 
 	render() {
 		const { formType } = this.props;
-
 		return (
 			<AppContext.Consumer>
 				{(context) => (
-					formType === FormTypes.addItem ? (
+					(formType === FormTypes.addItem && 
 						<AddGroceryItemForm context={context}
 							handleInputChange={this.handleInputChange}
 							handleDropdownChange={this.handleDropdownChange}
-							state={this.state}/>
-					) : (
-							<AddPriceItemForm context={context} handleInputChange={this.handleInputChange}
-								state={this.state}/>
-						)
+							state={this.state}/>)
+					(formType !== FormTypes.addItem  &&
+						<AddPriceItemForm context={context} handleInputChange={this.handleInputChange}
+							state={this.state}/>)
+						
 				)}
 			</AppContext.Consumer>
 		)

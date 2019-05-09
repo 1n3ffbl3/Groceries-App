@@ -2,11 +2,16 @@ import React from 'react';
 import styles from './Input.module.scss';
 import PropTypes from 'prop-types';
 
+const InputType = {
+	search: 'searchInput'
+};
+
 const Input = ({ tag: Tag, name, type, label, maxLength, ...props }) => {
+	const inputClass = Tag !== InputType.search ? styles.input : styles.searchInput;
 	return (
 		<div className={styles.inputWrapper}>
 			<input
-				className={Tag !== 'searchInput' ? styles.input : styles.searchInput}
+				className={inputClass}
 				type={type}
 				name={name}
 				id={name}

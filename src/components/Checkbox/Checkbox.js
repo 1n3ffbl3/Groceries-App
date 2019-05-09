@@ -17,7 +17,6 @@ const Checkbox = ({ type, name, checked, disabled, onChange }) => {
 };
 
 Checkbox.propTypes = {
-	type: PropTypes.string,
 	name: PropTypes.string.isRequired,
 	checked: PropTypes.bool,
 	onChange: PropTypes.func.isRequired,
@@ -25,7 +24,6 @@ Checkbox.propTypes = {
 };
 
 Checkbox.defaultProps = {
-	type: 'checkbox',
 	checked: false,
 	disabled: false,
 };
