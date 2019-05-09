@@ -5,11 +5,11 @@ import styles from './Button.module.scss';
 const Button = ({ children, secondary, ...props }) => {
 	const buttonClass = secondary ? styles.secondary : styles.button;
 	return (
-		<>
+		<Fragment>
 			<button className={buttonClass} {...props}>
 				{children}
 			</button>
-		</>
+		</Fragment>
 	);
 };
 

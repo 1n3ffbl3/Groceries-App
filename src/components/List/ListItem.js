@@ -5,23 +5,25 @@ import Checkbox from '../Checkbox/Checkbox';
 import AppContext from '../../context';
 import { FaTrash } from 'react-icons/fa';
 
-const ItemInfo = ({ isBought, label, value }) => (
-	<div className={styles.info}>
-		{
-			!isBought ? (
-				<>
-					<h3 className={styles.item}>{label}: </h3>
-					<h3 className={styles.item} >{value}</h3>
-				</>
-			) : (
+const ItemInfo = ({ isBought, label, value }) => {
+	return (
+		<div className={styles.info}>
+			{
+				!isBought ? (
 					<>
-						<h3 className={styles.itemBought}>{label}: </h3>
-						<h3 className={styles.itemBought}>{value}</h3>
+						<h3 className={styles.item}>{label}: </h3>
+						<h3 className={styles.item} >{value}</h3>
 					</>
-				)
-		}
-	</div>
-);
+				) : (
+						<>
+							<h3 className={styles.itemBought}>{label}: </h3>
+							<h3 className={styles.itemBought}>{value}</h3>
+						</>
+					)
+			}
+		</div>
+	);
+};
 
 const ListItem = ({ name, quantity, isBought }) => {
 	const subWrapperClass = !isBought ? styles.subWrapper : styles.subWrapperCompleted;
@@ -51,7 +53,6 @@ const ListItem = ({ name, quantity, isBought }) => {
 					</div>
 				</li>
 			)}
-
 		</AppContext.Consumer>
 	);
 };
