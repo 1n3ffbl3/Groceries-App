@@ -33,18 +33,18 @@ const ListItem = ({ name, quantity, isBought }) => {
 				<li className={styles.wrapper}>
 					<div className={subWrapperClass}>
 						<div className={styles.infoWrapper}>
-							<ItemInfo isBought={isBought} label="Name" value={name} />
-							<ItemInfo isBought={isBought} label="Quantity" value={quantity} />
+							<ItemInfo isBought={isBought} label="Name" value={name}/>
+							<ItemInfo isBought={isBought} label="Quantity" value={quantity}/>
 						</div>
 						<div className={styles.checkbox}>
 							<Checkbox
 								name="completed"
 								checked={isBought ? true : false}
-								onChange={() => context.markAsCompleted(name)} />
+								onChange={() => context.markAsCompleted(name)}/>
 						</div>
 						<div className={styles.remove}>
 							{!isBought ? (
-								<FaTrash onClick={() => context.deleteItem(name)} />
+								<FaTrash onClick={() => context.deleteItem(name)}/>
 							) : (
 									null
 								)}

@@ -7,7 +7,7 @@ const List = ({ items }) => {
 	return (
 		<ul className={styles.itemsWrapper}>
 			{items.map((item, index) => (
-				<ListItem {...item} key={index} />
+				<ListItem {...item} key={index}/>
 			))}
 		</ul>
 	);

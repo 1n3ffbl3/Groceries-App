@@ -16,8 +16,7 @@ const SearchInput = ({ context }) => {
 			name="searchQuery"
 			label={context.isNameSearch ? 'Search by name' : 'Search by category'}
 			value={context.searchQuery}
-			tag="searchInput"
-		/>
+			tag="searchInput"/>
 	);
 };
 
@@ -35,7 +34,7 @@ const FilterableList = ({ context, listItems }) => {
 						return g.category.toLowerCase().includes(searchQuery);
 					})} />
 				) : (
-						<List items={listItems} />
+						<List items={listItems}/>
 					)
 			}
 		</div>
@@ -60,24 +59,21 @@ const GroceryListView = () => {
 						</RadioButton>
 					</div>
 
-					<SearchInput context={context} />
+					<SearchInput context={context}/>
 					<Button onClick={context.openAddItemModal}>Add item</Button>
 
-					<FilterableList context={context} listItems={context.grocery} />
+					<FilterableList context={context} listItems={context.grocery}/>
 					<div className={styles.label}>
-						<label
-							onClick={context.toggleShowCompleted}
-
-						>Completed</label>
+						<label onClick={context.toggleShowCompleted}>Completed</label>
 						{
-							context.showCompleted ? (<FaAngleDown />) : (<FaAngleUp />)
+							context.showCompleted ? (<FaAngleDown />) : (<FaAngleUp/>)
 						}
 					</div>
 
 					{context.showCompleted ? (
 						<div>
 							{context.groceryCompleted.length ? (
-								<FilterableList context={context} listItems={context.groceryCompleted} />
+								<FilterableList context={context} listItems={context.groceryCompleted}/>
 							) : (
 									null
 								)}

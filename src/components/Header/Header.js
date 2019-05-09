@@ -8,7 +8,7 @@ const Header = () => {
 			<h1 className={styles.title}>Groceries App</h1>
 			<div className={styles.iconWrapper}>
 				<span className={styles.icon}>
-					<HeaderNav />
+					<HeaderNav/>
 				</span>
 			</div>
 		</header>

@@ -10,8 +10,7 @@ const Checkbox = ({ type, name, checked, disabled, onChange }) => {
 				name={name}
 				checked={checked}
 				onChange={onChange}
-				disabled={disabled}
-			/>
+				disabled={disabled}/>
 			<span className={styles.checkmark}></span>
 		</label>
 	)

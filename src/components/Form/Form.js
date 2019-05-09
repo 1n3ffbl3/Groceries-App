@@ -12,25 +12,22 @@ const AddGroceryItemForm = ({ context, handleInputChange, handleDropdownChange, 
 			<h2 className={styles.header}>ADD NEW ITEM</h2>
 			<form
 				className={styles.form}
-				onSubmit={(event) => context.addItem(event, state)}
-			>
+				onSubmit={(event) => context.addItem(event, state)}>
 				<Input
 					onChange={handleInputChange}
 					value={state.name}
 					type="text"
 					name="name"
 					label="Add item"
-					required
-				/>
+					required/>
 				<Input
 					onChange={handleInputChange}
 					value={state.quantity}
 					type="number"
 					name="quantity"
 					label="Quantity"
-					required
-				/>
-				<CategoryDropdown onChange={handleDropdownChange} />
+					required/>
+				<CategoryDropdown onChange={handleDropdownChange}/>
 				<Button secondary>Save</Button>
 			</form>
 		</div>
@@ -43,24 +40,21 @@ const AddPriceItemForm = ({ context, handleInputChange, state }) => {
 			<h2 className={styles.header}>ADD PRICE OF ONE ITEM</h2>
 			<form
 				className={styles.form}
-				onSubmit={(event) => context.updateItem(event, state)}
-			>
+				onSubmit={(event) => context.updateItem(event, state)}>
 				<Input
 					onChange={handleInputChange}
 					value={state.price}
 					type="number"
 					name="price"
 					label="3€"
-					required
-				/>
+					required/>
 				<Input
 					onChange={handleInputChange}
 					value={state.buyer}
 					type="text"
 					name="buyer"
 					label="Who"
-					required
-				/>
+					required/>
 				<Button secondary>Save</Button>
 			</form>
 		</div>
@@ -100,13 +94,12 @@ class Form extends React.Component {
 						<AddGroceryItemForm context={context}
 							handleInputChange={this.handleInputChange}
 							handleDropdownChange={this.handleDropdownChange}
-							state={this.state} />
+							state={this.state}/>
 					) : (
 							<AddPriceItemForm context={context} handleInputChange={this.handleInputChange}
-								state={this.state} />
+								state={this.state}/>
 						)
 				)}
-
 			</AppContext.Consumer>
 		)
 	}

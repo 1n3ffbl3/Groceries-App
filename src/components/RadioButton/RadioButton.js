@@ -8,9 +8,8 @@ const RadioButton = ({ children, checked, switchFn }) => {
 			<input
 				type="radio"
 				checked={checked}
-				onChange={switchFn}
-			/>
-			<div className={styles.radioButton} />
+				onChange={switchFn}/>
+			<div className={styles.radioButton}/>
 			{children}
 		</label>
 	);

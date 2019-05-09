@@ -15,7 +15,7 @@ const HeaderNav = () => {
 						className={styles.navItemLink}
 						activeClassName={styles.navItemLinkActive}
 						to="/">
-						<FaList /> List
+						<FaList/> List
 					</NavLink>
 				</li>
 				<li className={styles.navItem}>
@@ -24,7 +24,7 @@ const HeaderNav = () => {
 						className={styles.navItemLink}
 						activeClassName={styles.navItemLinkActive}
 						to="/recipes">
-						<FaUtensils /> Recipes
+						<FaUtensils/> Recipes
 					</NavLink>
 				</li>
 				<li className={styles.navItem}>
@@ -33,7 +33,7 @@ const HeaderNav = () => {
 						className={styles.navItemLink}
 						activeClassName={styles.navItemLinkActive}
 						to="/stats">
-						<FaChartPie /> Stats
+						<FaChartPie/> Stats
 					</NavLink>
 				</li>
 			</ul>
