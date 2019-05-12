@@ -1,11 +1,9 @@
 import React from 'react';
 import styles from './Form.module.scss';
 import AppContext from '../../context';
-import Button from '../Button/Button';
-import Input from '../Input/Input';
-import CategoryDropdown from '../Dropdown/Dropdown';
+import { Button, CategoryDropdown, Input, InputType } from '../'
 
-const FormTypes = {
+export const FormTypes = {
 	addItem: 'addItem',
 	addPrice: 'addPrice'
 };
@@ -23,6 +21,7 @@ const AddGroceryItemForm = ({ context, handleInputChange, handleDropdownChange, 
 					type="text"
 					name="name"
 					label="Add item"
+					tag={InputType.input}
 					required/>
 				<Input
 					onChange={handleInputChange}
@@ -30,6 +29,7 @@ const AddGroceryItemForm = ({ context, handleInputChange, handleDropdownChange, 
 					type="number"
 					name="quantity"
 					label="Quantity"
+					tag={InputType.input}
 					required/>
 				<CategoryDropdown onChange={handleDropdownChange}/>
 				<Button secondary>Save</Button>
@@ -51,6 +51,7 @@ const AddPriceItemForm = ({ context, handleInputChange, state }) => {
 					type="number"
 					name="price"
 					label="3€"
+					tag={InputType.input}
 					required/>
 				<Input
 					onChange={handleInputChange}
@@ -58,6 +59,7 @@ const AddPriceItemForm = ({ context, handleInputChange, state }) => {
 					type="text"
 					name="buyer"
 					label="Who"
+					tag={InputType.input}
 					required/>
 				<Button secondary>Save</Button>
 			</form>
@@ -76,7 +78,7 @@ class Form extends React.Component {
 		category: ''
 	};
 
-	handleInputChange = event => {
+	handleInputChange = (event) => {
 		this.setState({
 			[event.target.name]: event.target.value,
 		});
@@ -92,17 +94,24 @@ class Form extends React.Component {
 		const { formType } = this.props;
 		return (
 			<AppContext.Consumer>
-				{(context) => (
-					(formType === FormTypes.addItem && 
-						<AddGroceryItemForm context={context}
-							handleInputChange={this.handleInputChange}
-							handleDropdownChange={this.handleDropdownChange}
-							state={this.state}/>)
-					(formType !== FormTypes.addItem  &&
-						<AddPriceItemForm context={context} handleInputChange={this.handleInputChange}
-							state={this.state}/>)
-						
-				)}
+				{((context) => {
+					if (formType === FormTypes.addItem) {
+						return (
+							<AddGroceryItemForm context={context}
+								handleInputChange={this.handleInputChange}
+								handleDropdownChange={this.handleDropdownChange}
+								state={this.state}/>
+						)
+					}
+
+					if (formType === FormTypes.addPrice) {
+						return (
+							<AddPriceItemForm context={context}
+								handleInputChange={this.handleInputChange}
+								state={this.state}/>
+						)
+					}
+				})}
 			</AppContext.Consumer>
 		)
 	}

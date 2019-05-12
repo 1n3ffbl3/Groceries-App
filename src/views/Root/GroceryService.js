@@ -31,8 +31,8 @@ export class GroceryService {
 	updateGroceryItem(item) {
 		const grocery = this.fetchArrayByKey(localStorageKeys.grocery);
 		const groceryCompleted = this.fetchArrayByKey(localStorageKeys.groceryCompleted);
-		const groceryItem = grocery.find(g => g.name === item.name);
-		const groceryItemIndex = grocery.findIndex(g => g.name === item.name);
+		const groceryItem = grocery.find((g) => g.name === item.name);
+		const groceryItemIndex = grocery.findIndex((g) => g.name === item.name);
 
 		groceryItem.price = item.price;
 		groceryItem.buyer = item.buyer;
@@ -49,7 +49,7 @@ export class GroceryService {
 
 	deleteGroceryItem(name) {
 		const grocery = this.fetchArrayByKey(localStorageKeys.grocery);
-		const groceryItemIndex = grocery.findIndex(g => g.name === name);
+		const groceryItemIndex = grocery.findIndex((g) => g.name === name);
 
 		grocery.splice(groceryItemIndex, 1);
 

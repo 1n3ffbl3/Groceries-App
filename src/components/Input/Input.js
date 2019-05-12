@@ -2,7 +2,8 @@ import React from 'react';
 import styles from './Input.module.scss';
 import PropTypes from 'prop-types';
 
-const InputType = {
+export const InputType = {
+	input: 'standardInput',
 	search: 'searchInput'
 };
 
@@ -27,7 +28,7 @@ const Input = ({ tag: Tag, name, type, label, maxLength, ...props }) => {
 };
 
 Input.propTypes = {
-	tag: PropTypes.string,
+	tag: PropTypes.oneOf(['standardInput', 'searchInput']),
 	name: PropTypes.string.isRequired,
 	type: PropTypes.string.isRequired,
 	label: PropTypes.string.isRequired,

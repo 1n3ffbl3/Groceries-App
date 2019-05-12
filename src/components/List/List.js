@@ -6,15 +6,15 @@ import ListItem from './ListItem';
 const List = ({ items }) => {
 	return (
 		<ul className={styles.itemsWrapper}>
-			{items.map((item, index) => (
-				<ListItem {...item} key={index}/>
+			{items.map((item) => (
+				<ListItem {...item} key={item.name}/>
 			))}
 		</ul>
 	);
 };
 
 List.propTypes = {
-	items: PropTypes.array,
+	items: PropTypes.arrayOf(PropTypes.object),
 };
 
 List.defaultProps = {

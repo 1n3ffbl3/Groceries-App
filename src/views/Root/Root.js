@@ -2,14 +2,9 @@ import React, { Component } from 'react';
 import './index.css';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import AppContext from '../../context';
-import Modal from '../../components/Modal/Modal';
-import Header from '../../components/Header/Header';
-import GroceryListView from '../GroceryListView/GroceryListView';
-import RecipesListView from '../RecipesListView/RecipesListView';
-import StatisticsView from '../StatisticsView/StatisticsView';
-import Form from '../../components/Form/Form';
-import FormTypes from '../../components/Form/FormTypes';
+import { Form, FormTypes, Modal, Header } from '../../components/index';
 import { GroceryService } from './GroceryService';
+import { StatisticsView, RecipesListView, GroceryListView } from '../index';
 
 class Root extends Component {
 	state = {
@@ -77,7 +72,7 @@ class Root extends Component {
 		this.closeModal();
 	};
 
-	handleSearchInput = event => {
+	handleSearchInput = (event) => {
 		const searchQuery = event.target.value;
 		this.setState({
 			searchQuery: searchQuery
@@ -93,13 +88,13 @@ class Root extends Component {
 	};
 
 	switchSearch = () => {
-		this.setState(prevState => ({
+		this.setState((prevState) => ({
 			isNameSearch: !prevState.isNameSearch
 		}));
 	};
 
 	toggleShowCompleted = () => {
-		this.setState(prevState => ({
+		this.setState((prevState) => ({
 			showCompleted: !prevState.showCompleted
 		}));
 	};

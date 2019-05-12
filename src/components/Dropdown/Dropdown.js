@@ -15,7 +15,7 @@ class CategoryDropdown extends React.Component {
 	}
 
 	toggle() {
-		this.setState(prevState => ({
+		this.setState((prevState) => ({
 			dropdownOpen: !prevState.dropdownOpen
 		}));
 	}

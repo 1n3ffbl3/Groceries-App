@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import styles from './ListItem.module.scss';
-import Checkbox from '../Checkbox/Checkbox';
+import { Checkbox } from '../';
 import AppContext from '../../context';
 import { FaTrash } from 'react-icons/fa';
 
@@ -9,17 +9,20 @@ const ItemInfo = ({ isBought, label, value }) => {
 	return (
 		<div className={styles.info}>
 			{
-				!isBought ? (
-					<>
+				!isBought && (
+					<Fragment>
 						<h3 className={styles.item}>{label}: </h3>
 						<h3 className={styles.item} >{value}</h3>
-					</>
-				) : (
-						<>
-							<h3 className={styles.itemBought}>{label}: </h3>
-							<h3 className={styles.itemBought}>{value}</h3>
-						</>
-					)
+					</Fragment>
+				)
+			}
+			{
+				isBought && (
+					<Fragment>
+						<h3 className={styles.itemBought}>{label}: </h3>
+						<h3 className={styles.itemBought}>{value}</h3>
+					</Fragment>
+				)
 			}
 		</div>
 	);

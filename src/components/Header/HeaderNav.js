@@ -1,9 +1,7 @@
 import React from 'react';
 import styles from './HeaderNav.module.scss';
 import { NavLink } from 'react-router-dom';
-import { FaList } from 'react-icons/fa';
-import { FaUtensils } from 'react-icons/fa';
-import { FaChartPie } from 'react-icons/fa';
+import { FaChartPie, FaUtensils, FaList } from 'react-icons/fa';
 
 const HeaderNav = () => {
 	return (

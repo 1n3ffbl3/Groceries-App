@@ -1,11 +1,8 @@
 import React from 'react';
 import AppContext from '../../context';
-import List from '../../components/List/List';
-import Input from '../../components/Input/Input';
 import styles from './GroceryListView.module.scss';
 import { FaAngleDown, FaAngleUp } from 'react-icons/fa';
-import Button from '../../components/Button/Button';
-import RadioButton from '../../components/RadioButton/RadioButton';
+import { Button, RadioButton, Input, List } from '../../components/';
 
 const SearchInput = ({ context }) => { 
 	return (
@@ -25,13 +22,13 @@ const FilterableList = ({ context, listItems }) => {
 		<div>
 			{
 				context.searchQuery ? (
-					<List items={listItems.filter(g => {
+					<List items={listItems.filter((grocery) => {
 						const searchQuery = context.searchQuery.toLowerCase();
 						if (context.isNameSearch) {
-							return g.name.toLowerCase().includes(searchQuery);
+							return grocery.name.toLowerCase().includes(searchQuery);
 						}
 
-						return g.category.toLowerCase().includes(searchQuery);
+						return grocery.category.toLowerCase().includes(searchQuery);
 					})} />
 				) : (
 						<List items={listItems}/>
