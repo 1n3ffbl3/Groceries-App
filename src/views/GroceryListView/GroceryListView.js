@@ -1,5 +1,5 @@
 import React from 'react';
-import AppContext from '../../context';
+import { UIContext } from '../../context';
 import styles from './GroceryListView.module.scss';
 import { FaAngleDown, FaAngleUp } from 'react-icons/fa';
 import { Button, RadioButton, Input, List } from '../../components/';
@@ -41,44 +41,47 @@ const FilterableList = ({ context, listItems }) => {
 
 const GroceryListView = () => {
   return (
-    <AppContext.Consumer>
-      {(context) => (
+    <UIContext.Consumer>
+      {(uiCtxElements) => (
         <div className={styles.wrapper}>
           <div>
             <RadioButton
-              switchFn={context.switchSearch}
-              checked={context.isNameSearch}>
+              switchFn={uiCtxElements.switchSearch}
+              checked={uiCtxElements.isNameSearch}>
               Name
             </RadioButton>
             <RadioButton
-              switchFn={context.switchSearch}
-              checked={!context.isNameSearch}>
+              switchFn={uiCtxElements.switchSearch}
+              checked={!uiCtxElements.isNameSearch}>
               Category
             </RadioButton>
           </div>
 
-          <SearchInput context={context} />
-          <Button onClick={context.openAddItemModal}>Add item</Button>
+          <SearchInput context={uiCtxElements} />
+          <Button onClick={uiCtxElements.openAddItemModal}>Add item</Button>
 
-          <FilterableList context={context} listItems={context.grocery} />
+          <FilterableList
+            context={uiCtxElements}
+            listItems={uiCtxElements.grocery}
+          />
           <div className={styles.label}>
-            <label onClick={context.toggleShowCompleted}>Completed</label>
-            {context.showCompleted ? <FaAngleDown /> : <FaAngleUp />}
+            <label onClick={uiCtxElements.toggleShowCompleted}>Completed</label>
+            {uiCtxElements.showCompleted ? <FaAngleDown /> : <FaAngleUp />}
           </div>
 
-          {context.showCompleted ? (
+          {uiCtxElements.showCompleted ? (
             <div>
-              {context.groceryCompleted.length ? (
+              {uiCtxElements.groceryCompleted.length ? (
                 <FilterableList
-                  context={context}
-                  listItems={context.groceryCompleted}
+                  context={uiCtxElements}
+                  listItems={uiCtxElements.groceryCompleted}
                 />
               ) : null}
             </div>
           ) : null}
         </div>
       )}
-    </AppContext.Consumer>
+    </UIContext.Consumer>
   );
 };
 

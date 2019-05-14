@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './index.css';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import AppContext from '../../context';
+import { MultipleContextProvider } from '../../context';
 import { Form, FormTypes, Modal, Header } from '../../components/index';
 import { GroceryService } from './GroceryService';
 import { StatisticsView, RecipesListView, GroceryListView } from '../index';
@@ -46,7 +46,7 @@ class Root extends Component {
     const grocery = this.groceryService.addGroceryItem(newItem);
 
     this.setState({
-      grocery: grocery
+      grocery
     });
 
     this.closeModal();
@@ -56,7 +56,7 @@ class Root extends Component {
     const grocery = this.groceryService.deleteGroceryItem(name);
 
     this.setState({
-      grocery: grocery
+      grocery
     });
   };
 
@@ -75,7 +75,7 @@ class Root extends Component {
   handleSearchInput = (event) => {
     const searchQuery = event.target.value;
     this.setState({
-      searchQuery: searchQuery
+      searchQuery
     });
   };
 
@@ -101,10 +101,12 @@ class Root extends Component {
 
   render() {
     const { isModalOpen, formType, itemUnderEdition } = this.state;
-    const contextElements = {
+    const itemsContext = {
       addItem: this.addItem,
       updateItem: this.updateItem,
-      deleteItem: this.deleteItem,
+      deleteItem: this.deleteItem
+    };
+    const uiContext = {
       handleSearchInput: this.handleSearchInput,
       markAsCompleted: this.markAsCompleted,
       openAddItemModal: this.openAddItemModal,
@@ -115,7 +117,9 @@ class Root extends Component {
 
     return (
       <BrowserRouter>
-        <AppContext.Provider value={contextElements}>
+        <MultipleContextProvider.Provider
+          itemCtxValue={itemsContext}
+          uiCtxValue={uiContext}>
           <Header />
           <main className='container'>
             <Switch>
@@ -129,7 +133,7 @@ class Root extends Component {
               <Form formType={formType} name={itemUnderEdition} />
             </Modal>
           )}
-        </AppContext.Provider>
+        </MultipleContextProvider.Provider>
       </BrowserRouter>
     );
   }

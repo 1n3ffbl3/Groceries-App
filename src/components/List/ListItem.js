@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import styles from './ListItem.module.scss';
 import { Checkbox } from '../';
-import AppContext from '../../context';
+import { MultipleContextConsumer } from '../../context';
 import { FaTrash } from 'react-icons/fa';
 
 const ItemInfo = ({ isBought, label, value }) => {
@@ -29,8 +29,8 @@ const ListItem = ({ name, quantity, isBought }) => {
     ? styles.subWrapper
     : styles.subWrapperCompleted;
   return (
-    <AppContext.Consumer>
-      {(context) => (
+    <MultipleContextConsumer.Consumer>
+      {(uiCtx, itemCtx) => (
         <li className={styles.wrapper}>
           <div className={subWrapperClass}>
             <div className={styles.infoWrapper}>
@@ -41,18 +41,18 @@ const ListItem = ({ name, quantity, isBought }) => {
               <Checkbox
                 name='completed'
                 checked={isBought ? true : false}
-                onChange={() => context.markAsCompleted(name)}
+                onChange={() => uiCtx.markAsCompleted(name)}
               />
             </div>
             <div className={styles.remove}>
               {!isBought ? (
-                <FaTrash onClick={() => context.deleteItem(name)} />
+                <FaTrash onClick={() => itemCtx.deleteItem(name)} />
               ) : null}
             </div>
           </div>
         </li>
       )}
-    </AppContext.Consumer>
+    </MultipleContextConsumer.Consumer>
   );
 };
 
