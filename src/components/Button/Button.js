@@ -3,22 +3,22 @@ import PropTypes from 'prop-types';
 import styles from './Button.module.scss';
 
 const Button = ({ children, secondary, ...props }) => {
-	const buttonClass = secondary ? styles.secondary : styles.button;
-	return (
-		<Fragment>
-			<button className={buttonClass} {...props}>
-				{children}
-			</button>
-		</Fragment>
-	);
+  const buttonClass = secondary ? styles.secondary : styles.button;
+  return (
+    <Fragment>
+      <button className={buttonClass} {...props}>
+        {children}
+      </button>
+    </Fragment>
+  );
 };
 
 Button.propTypes = {
-	secondary: PropTypes.bool,
+  secondary: PropTypes.bool
 };
 
 Button.defaultProps = {
-	secondary: null,
+  secondary: null
 };
 
 export default Button;

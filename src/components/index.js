@@ -8,15 +8,16 @@ import List from './List/List';
 import Modal from './Modal/Modal';
 import RadioButton from './RadioButton/RadioButton';
 
-export { Button, 
-    CategoryDropdown, 
-    Checkbox, 
-    Form, 
-    FormTypes, 
-    Header, 
-    Input, 
-    List,
-    Modal, 
-    RadioButton,
-    InputType
+export {
+  Button,
+  CategoryDropdown,
+  Checkbox,
+  Form,
+  FormTypes,
+  Header,
+  Input,
+  List,
+  Modal,
+  RadioButton,
+  InputType
 };

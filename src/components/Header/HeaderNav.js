@@ -4,39 +4,39 @@ import { NavLink } from 'react-router-dom';
 import { FaChartPie, FaUtensils, FaList } from 'react-icons/fa';
 
 const HeaderNav = () => {
-	return (
-		<nav>
-			<ul className={styles.wrapper}>
-				<li className={styles.navItem}>
-					<NavLink
-						exact
-						className={styles.navItemLink}
-						activeClassName={styles.navItemLinkActive}
-						to="/">
-						<FaList/> List
-					</NavLink>
-				</li>
-				<li className={styles.navItem}>
-					<NavLink
-						exact
-						className={styles.navItemLink}
-						activeClassName={styles.navItemLinkActive}
-						to="/recipes">
-						<FaUtensils/> Recipes
-					</NavLink>
-				</li>
-				<li className={styles.navItem}>
-					<NavLink
-						exact
-						className={styles.navItemLink}
-						activeClassName={styles.navItemLinkActive}
-						to="/stats">
-						<FaChartPie/> Stats
-					</NavLink>
-				</li>
-			</ul>
-		</nav >
-	);
+  return (
+    <nav>
+      <ul className={styles.wrapper}>
+        <li className={styles.navItem}>
+          <NavLink
+            exact
+            className={styles.navItemLink}
+            activeClassName={styles.navItemLinkActive}
+            to='/'>
+            <FaList /> List
+          </NavLink>
+        </li>
+        <li className={styles.navItem}>
+          <NavLink
+            exact
+            className={styles.navItemLink}
+            activeClassName={styles.navItemLinkActive}
+            to='/recipes'>
+            <FaUtensils /> Recipes
+          </NavLink>
+        </li>
+        <li className={styles.navItem}>
+          <NavLink
+            exact
+            className={styles.navItemLink}
+            activeClassName={styles.navItemLinkActive}
+            to='/stats'>
+            <FaChartPie /> Stats
+          </NavLink>
+        </li>
+      </ul>
+    </nav>
+  );
 };
 
 export default HeaderNav;

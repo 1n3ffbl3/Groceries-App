@@ -1,4 +1,4 @@
 export const localStorageKeys = {
-	grocery: 'grocery',
-	groceryCompleted: 'groceryCompleted'
+  grocery: 'grocery',
+  groceryCompleted: 'groceryCompleted'
 };

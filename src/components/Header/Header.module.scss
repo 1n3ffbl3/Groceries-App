@@ -1,28 +1,28 @@
 .wrapper {
-	display: block;
-	grid-template-columns: 1fr 100px;
-	align-items: center;
-	padding: 30px 40px;
-	background: rgb(200, 235, 223);
-	width: 100%;
+  display: block;
+  grid-template-columns: 1fr 100px;
+  align-items: center;
+  padding: 30px 40px;
+  background: rgb(200, 235, 223);
+  width: 100%;
 }
 
 .title {
-	font-size: 24px;
-    text-align: center;
-    font-weight: lighter;
-	padding: 16px;
-	color: rgb(0, 83, 135);
+  font-size: 24px;
+  text-align: center;
+  font-weight: lighter;
+  padding: 16px;
+  color: rgb(0, 83, 135);
 }
 
 .iconWrapper {
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	position: relative;
-	align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  position: relative;
+  align-items: center;
 }
 
 .icon {
-	text-align: center;
+  text-align: center;
 }

@@ -1,20 +1,20 @@
 .navItem {
-	display: inline-block;
-	list-style: none;
-	margin-right: 60px;
+  display: inline-block;
+  list-style: none;
+  margin-right: 60px;
 
-		@media (max-width: 600px) {
-			margin-right: 22px;
-			}
-	
-	&Link {
-		text-decoration: none;
-		color: #ccc;
+  @media (max-width: 600px) {
+    margin-right: 22px;
+  }
 
-		&Active {
-			font-weight: 700;
-			border-bottom: 2px solid rgb(0, 83, 135);
-			color: rgb(0, 83, 135);
-		}
-	}	
+  &Link {
+    text-decoration: none;
+    color: #ccc;
+
+    &Active {
+      font-weight: 700;
+      border-bottom: 2px solid rgb(0, 83, 135);
+      color: rgb(0, 83, 135);
+    }
+  }
 }

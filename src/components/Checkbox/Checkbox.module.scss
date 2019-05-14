@@ -13,17 +13,17 @@
 }
 
 .checkmark {
-	position: absolute;
-	height: 40px;
-	width: 40px;
-	background-color: #eee;
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  background-color: #eee;
 
-  	@media (max-width: 600px) {
-		height: 30px;
-		width: 30px;
-		top: 10px;
-		left: 15px;
-	}
+  @media (max-width: 600px) {
+    height: 30px;
+    width: 30px;
+    top: 10px;
+    left: 15px;
+  }
 }
 
 .container:hover input ~ .checkmark {
@@ -35,7 +35,7 @@
 }
 
 .checkmark:after {
-  content: "";
+  content: '';
   position: absolute;
   display: none;
 }
@@ -56,7 +56,7 @@
   transform: rotate(45deg);
 
   @media (max-width: 600px) {
-		height: 15px;
-		width: 10px;
-	}
+    height: 15px;
+    width: 10px;
+  }
 }
