@@ -29,8 +29,9 @@ const ListItem = ({ name, quantity, isBought }) => {
     ? styles.subWrapper
     : styles.subWrapperCompleted;
   return (
-    <MultipleContextConsumer.Consumer>
-      {(uiCtx, itemCtx) => (
+    <MultipleContextConsumer>
+      {({uiCtx, itemCtx}) => {
+        return (
         <li className={styles.wrapper}>
           <div className={subWrapperClass}>
             <div className={styles.infoWrapper}>
@@ -39,6 +40,7 @@ const ListItem = ({ name, quantity, isBought }) => {
             </div>
             <div className={styles.checkbox}>
               <Checkbox
+                type='checkbox'
                 name='completed'
                 checked={isBought ? true : false}
                 onChange={() => uiCtx.markAsCompleted(name)}
@@ -51,8 +53,8 @@ const ListItem = ({ name, quantity, isBought }) => {
             </div>
           </div>
         </li>
-      )}
-    </MultipleContextConsumer.Consumer>
+      )}}
+    </MultipleContextConsumer>
   );
 };
 

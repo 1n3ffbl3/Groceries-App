@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import {
   Dropdown,
@@ -12,6 +12,10 @@ const CategoryDropdown = ({ onChange }) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState('Select category');
 
+  useEffect(() => {
+    onChange(selectedCategory);
+  }, [selectedCategory]);
+
   return (
     <Dropdown
       className={styles.wrapper}
@@ -20,32 +24,16 @@ const CategoryDropdown = ({ onChange }) => {
       required>
       <DropdownToggle caret>{selectedCategory}</DropdownToggle>
       <DropdownMenu>
-        <DropdownItem
-          onClick={() => {
-            setSelectedCategory('Vegetable');
-            onChange(selectedCategory);
-          }}>
+        <DropdownItem onClick={() => setSelectedCategory('Vegetable')}>
           Vegetable
         </DropdownItem>
-        <DropdownItem
-          onClick={() => {
-            setSelectedCategory('Fruit');
-            onChange(selectedCategory);
-          }}>
+        <DropdownItem onClick={() => setSelectedCategory('Fruit')}>
           Fruit
         </DropdownItem>
-        <DropdownItem
-          onClick={() => {
-            setSelectedCategory('Meat');
-            onChange(selectedCategory);
-          }}>
+        <DropdownItem onClick={() => setSelectedCategory('Meat')}>
           Meat
         </DropdownItem>
-        <DropdownItem
-          onClick={() => {
-            setSelectedCategory('Bakery');
-            onChange(selectedCategory);
-          }}>
+        <DropdownItem onClick={() => setSelectedCategory('Bakery')}>
           Bakery
         </DropdownItem>
       </DropdownMenu>

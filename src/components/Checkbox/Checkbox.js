@@ -10,14 +10,14 @@ const Checkbox = ({ type, name, checked, disabled, onChange }) => {
         name={name}
         checked={checked}
         onChange={onChange}
-        disabled={disabled}
-      />
+        disabled={disabled} />
       <span className={styles.checkmark} />
     </label>
   );
 };
 
 Checkbox.propTypes = {
+  type: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   checked: PropTypes.bool,
   onChange: PropTypes.func.isRequired,

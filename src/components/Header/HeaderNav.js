@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './HeaderNav.module.scss';
 import { NavLink } from 'react-router-dom';
-import { FaChartPie, FaUtensils, FaList } from 'react-icons/fa';
+import { FaList } from 'react-icons/fa';
 
 const HeaderNav = () => {
   return (
@@ -14,24 +14,6 @@ const HeaderNav = () => {
             activeClassName={styles.navItemLinkActive}
             to='/'>
             <FaList /> List
-          </NavLink>
-        </li>
-        <li className={styles.navItem}>
-          <NavLink
-            exact
-            className={styles.navItemLink}
-            activeClassName={styles.navItemLinkActive}
-            to='/recipes'>
-            <FaUtensils /> Recipes
-          </NavLink>
-        </li>
-        <li className={styles.navItem}>
-          <NavLink
-            exact
-            className={styles.navItemLink}
-            activeClassName={styles.navItemLinkActive}
-            to='/stats'>
-            <FaChartPie /> Stats
           </NavLink>
         </li>
       </ul>

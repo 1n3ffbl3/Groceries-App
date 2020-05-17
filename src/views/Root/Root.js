@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import './index.css';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+
+import './index.css';
 import { MultipleContextProvider } from '../../context';
 import { Form, FormTypes, Modal, Header } from '../../components/index';
 import { GroceryService } from './GroceryService';
-import { StatisticsView, RecipesListView, GroceryListView } from '../index';
+import { GroceryListView } from '../index';
 
 class Root extends Component {
   state = {
@@ -20,7 +21,7 @@ class Root extends Component {
 
   groceryService = new GroceryService();
 
-  componentWillMount = () => {
+  UNSAFE_componentWillMount = () => {
     this.setState({
       grocery: this.groceryService.getAllGroceries(),
       groceryCompleted: this.groceryService.getAllCompletedGroceries()
@@ -43,6 +44,7 @@ class Root extends Component {
 
   addItem = (event, newItem) => {
     event.preventDefault();
+
     const grocery = this.groceryService.addGroceryItem(newItem);
 
     this.setState({
@@ -117,15 +119,11 @@ class Root extends Component {
 
     return (
       <BrowserRouter>
-        <MultipleContextProvider.Provider
-          itemCtxValue={itemsContext}
-          uiCtxValue={uiContext}>
+        <MultipleContextProvider itemCtxValue={itemsContext} uiCtxValue={uiContext}>
           <Header />
           <main className='container'>
             <Switch>
               <Route exact path='/' component={GroceryListView} />
-              <Route path='/recipes' component={RecipesListView} />
-              <Route path='/stats' component={StatisticsView} />
             </Switch>
           </main>
           {isModalOpen && (
@@ -133,7 +131,7 @@ class Root extends Component {
               <Form formType={formType} name={itemUnderEdition} />
             </Modal>
           )}
-        </MultipleContextProvider.Provider>
+        </MultipleContextProvider>
       </BrowserRouter>
     );
   }
