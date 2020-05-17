@@ -1,0 +1,65 @@
+.inputWrapper {
+  position: relative;
+  margin: 24px 24px 24px 0px;
+}
+
+.inputBar {
+  height: 2px;
+  width: 100%;
+  background: rgb(0, 83, 135);
+  transition: 0.1s all;
+}
+
+.label {
+  position: absolute;
+  top: 3px;
+  left: 0;
+  font-size: 16px;
+  color: rgb(0, 83, 135);
+  transition: 0.2s ease-out all;
+}
+
+.input {
+  color: rgb(0, 83, 135);
+  font-size: 20px;
+  border: none;
+  line-height: 22px;
+  width: 100%;
+  background: none;
+}
+
+.searchInput {
+  color: rgb(0, 83, 135);
+  font-size: 20px;
+  border: none;
+  line-height: 22px;
+  width: 100%;
+  background: none;
+}
+
+.input:focus,
+.searchInput:focus {
+  outline: none;
+}
+
+.input:focus + .label,
+.searchInput:focus + .label {
+  top: -22px;
+  font-size: 13px;
+}
+
+.input:not(:placeholder-shown) + .label,
+.searchInput:not(:placeholder-shown) + .label {
+  top: -22px;
+  font-size: 13px;
+}
+
+.input:focus ~ .formItemBar,
+.searchInput:focus ~ .formItemBar {
+  background: #7d7d7d;
+}
+
+.input:not(:focus):invalid ~ .formItemBar,
+.searchInput:not(:focus):invalid ~ .formItemBar {
+  background: red;
+}

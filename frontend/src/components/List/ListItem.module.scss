@@ -1,0 +1,110 @@
+.wrapper {
+  list-style: none;
+  padding: 0 0 50px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+}
+
+.subWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  place-content: center flex-start;
+  position: relative;
+  min-width: 30%;
+  border-style: solid;
+  border-color: rgb(0, 83, 135);
+  background: rgb(0, 83, 135);
+  color: white;
+  width: 30%;
+
+  @media (max-width: 600px) {
+    width: 100%;
+  }
+}
+
+.subWrapperCompleted {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  place-content: center flex-start;
+  position: relative;
+  min-width: 30%;
+  width: 30%;
+  background-color: rgba(53, 177, 134, 0.5);
+
+  @media (max-width: 600px) {
+    width: 100%;
+  }
+}
+
+.checkbox {
+  position: absolute;
+  align-items: right;
+  margin-left: 30px;
+  width: 60px;
+  height: 50px;
+  right: 20px;
+}
+
+.remove {
+  position: absolute;
+  right: 0;
+  top: 9px;
+  width: 30px;
+  height: 40px;
+  color: rgba(200, 235, 223, 0.5);
+}
+
+.infoWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  place-content: center flex-start;
+
+  .info {
+    display: flex;
+    flex-direction: row;
+    place-content: center flex-start;
+    align-items: center;
+    flex-wrap: nowrap;
+    color: rgb(0, 83, 135);
+    width: 100%;
+
+    h3 {
+      @media (max-width: 600px) {
+        font-size: 20px;
+      }
+    }
+  }
+}
+
+.item {
+  font-size: 30px;
+  padding: 5px 20px 5px 20px;
+  color: white;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.itemBought {
+  font-size: 30px;
+  padding: 5px 20px 5px 20px;
+  text-transform: capitalize;
+  position: relative;
+
+  &::after {
+    border-bottom: 0.125em solid rgba(200, 235, 223, 0.5);
+    content: '';
+    left: 0;
+    line-height: 1em;
+    margin-top: calc(0.125em / 2 * -1);
+    position: absolute;
+    right: 0;
+    top: 50%;
+  }
+}
