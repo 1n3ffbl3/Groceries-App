@@ -54,19 +54,19 @@ const AddGroceryItemForm = () => {
   );
 };
 
-const AddPriceItemForm = ({ context, handleInputChange, state }) => {
+const AddPriceItemForm = ({ name }) => {
   const [price, setPrice] = useState('');
   const [buyer, setBuyer] = useState('');
 
   return (
     <ItemContext.Consumer>
-      {({context}) => {
+      {(context) => {
         return (
           <div className={styles.wrapper}>
             <h2 className={styles.header}>ADD PRICE OF ONE ITEM</h2>
             <form
               className={styles.form}
-              onSubmit={(event) => context.updateItem(event, state)}>
+              onSubmit={(event) => context.updateItem(event, { price, buyer, name })}>
               <Input
                 onChange={(e) => setPrice(e.target.value)}
                 value={price}
@@ -94,13 +94,13 @@ const AddPriceItemForm = ({ context, handleInputChange, state }) => {
   );
 };
 
-const Form = ({ formType }) => {
+const Form = ({ formType, name }) => {
   if (formType === FormTypes.addItem) {
     return <AddGroceryItemForm />;
   }
 
   if (formType === FormTypes.addPrice) {
-    return <AddPriceItemForm />;
+    return <AddPriceItemForm name={name} />;
   }
 };
 
